@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
+    <script src="./oscillatorUtil.js" ></script>
+    <script src="./inputHandler.js" ></script>
+    <script src="./formHandler.js" ></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <main>
+    </main>
+    <form>
+      <div>
+        <label for="playback">Pause/Play camera: </label>
+        <button type="button" id="playback" onclick="handlePlaybackToggle()">❚❚</button>
+      </div>
+      
+      <div>
+        <label for="manualStart">Activate Audio engine : </label>
+        <button type="button" id="manualStart" onclick="grid.manualStartup()">Manual Startup</button>
+      </div>
+      
+      <div>
+        <label for="max-volume">Max volume: </label>
+        0%
+        <input type="range" id="max-volume" min="0" max="1" step="0.01">
+        100%
+      </div>
+      
+      <div>
+        <input type="text" id="width" placeholder="width" value="640" maxlength="5"> x 
+        <input type="text" id="height" placeholder="height" value="480" maxlength="5">
+        <button type="button" onclick="updateCanvasSize()">Update size</button>
+      </div>
+      
+      <div>
+      <label for="model-type">Type of prediction model: </label>
+      Lite
+      <label class="switch active">
+        <input type="checkbox" id="model-type">
+        <span class="slider"></span>
+      </label>
+      Full
+      </div>
+      
+      <hr>
+      
+      <div>
+      <label for="handedness">Amplitute control hand: </label>
+      L
+      <label class="switch active">
+        <input type="checkbox" id="handedness">
+        <span class="slider"></span>
+      </label>
+      R
+      </div>
+      
+      <div>
+        <label for="closed-hand">Closed hand detection: </label>
+        <label class="switch">
+        <input type="checkbox" id="closed-hand">
+        <span class="slider"></span>
+      </label>
+      </div>
+      
+      <div>
+        <label for="vibrato">Vibrato: </label>
+        <label class="switch">
+        <input type="checkbox" id="vibrato">
+        <span class="slider"></span>
+      </label>
+      </div>
+      
+      <hr>
+      
+      <div>
+        <label for="wave-type">Wave Type:</label>
+        <select id="wave-type">
+          <option value="sine">Sine</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+          <option value="sawtooth">Sawtooth</option>
+        </select>
+      </div>
+    </form>
+    <script src="sketch.js"></script>
+  </body>
+</html>
